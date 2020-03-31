@@ -1,7 +1,7 @@
 
 
 <?php 
-
+include_once('admin_check.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include_once('db.php');
 
@@ -35,6 +35,7 @@ include_once('db.php');
         <div class="flex-column h-100 w-100 py-2">
             <a href="admin_home.php" class='nav-item  pb-1 mb-3'>Home</a>
             <a href="students.php" class='nav-item active pb-1 mb-3'>Students</a>
+            <a href="users.php" class='nav-item pb-1 mb-3'>Users</a>
             <a href="faculty.php" class='nav-item pb-1 mb-3'>Faculty</a>
             <a href="branches.php" class='nav-item  pb-1 mb-3'>Branches</a>
         </div>

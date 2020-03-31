@@ -1,7 +1,8 @@
 <?php
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         include_once('db.php');
-
+        include_once('admin_check.php');
         $name=$_POST['studentName'];
         $age=$_POST['studentAge'];
         $level=$_POST['studentLevel'];

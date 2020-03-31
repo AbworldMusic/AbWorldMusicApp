@@ -6,11 +6,19 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="p-2 bg-info text-white">Welcome to AB World Music</div>
+    <div class="p-2  bg-info ">
+      <div class="text-white d-inline">Welcome to AB World Music</div>
+      <div class="text-white float-right">
+        <a class="text-white" href="logout.php"><i class="fa fa-sign-out"></i> Log out</a>
+      </div>
+
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
