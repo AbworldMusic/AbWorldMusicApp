@@ -44,7 +44,9 @@ include_once('db.php');
                     <tbody>
                         <?php 
                             include_once('db.php');
-                            $result = mysqli_query($conn,"SELECT * FROM students");
+                            if(!$conn)
+                                echo "Connection failed";
+                            $result = mysqli_query($conn,"SELECT * FROM Students");
                             $slno = 1;
                             while($row = mysqli_fetch_array($result)){
                         ?>
