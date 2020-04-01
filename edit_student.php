@@ -38,6 +38,7 @@ include_once('db.php');
             <a href="users.php" class='nav-item pb-1 mb-3'>Users</a>
             <a href="faculty.php" class='nav-item pb-1 mb-3'>Faculty</a>
             <a href="branches.php" class='nav-item  pb-1 mb-3'>Branches</a>
+            <a href="lessons.php" class='nav-item pb-1 mb-3'>Lessons</a>
         </div>
     </div>
     <div class="h-100 w-100">
