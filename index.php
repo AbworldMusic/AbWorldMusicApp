@@ -5,6 +5,9 @@ $flash = "";
 if(isset($_SESSION['flash'])){
   $flash = $_SESSION['flash'];
 }
+if(isset($_SESSION['email'])){
+  header("Location: admin_home.php");
+}
 ?>
 <title>AB World</title>
 <div class="h-100 w-100 pt-5 bg-light">
