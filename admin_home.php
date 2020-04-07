@@ -32,7 +32,7 @@ include_once('db.php');
             <div class='border border-secondary rounded p-2'>
             <h4>Students</h4>
             <?php
-                $result = mysqli_query($conn,"SELECT * FROM students");
+                $result = mysqli_query($conn,"SELECT * FROM Students");
                 $count = 0;
                 while($row = mysqli_fetch_array($result)){
                     $count=$count+1;
