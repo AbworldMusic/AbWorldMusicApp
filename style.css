@@ -34,6 +34,10 @@
     height: 250px;
     width: 250px;
 }
+.count{
+    font-size: 60px;
+    font-weight: bold;
+}
 .slot-box{
     display: inline-block !important;
 }

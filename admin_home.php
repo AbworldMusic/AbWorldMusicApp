@@ -1,7 +1,7 @@
 <?php 
 include_once('header.php');
 include_once('admin_check.php');
-
+include_once('db.php');
 ?>
 <title>Ab World | Team</title>
 <div class="d-flex h-100 w-100">
@@ -15,6 +15,45 @@ include_once('admin_check.php');
             <a href="lessons.php" class='nav-item pb-1 mb-3'>Lessons</a>
         </div>
     </div>
-    <div class='p-3'>
-        <h5>Can add some cool stuff here. Check other tabs in the mean time</h5>
+    <div class='p-3 row w-100'>
+        <div class="col-sm-4  p-2 ">
+            <div class='border border-secondary rounded p-2'>
+            <h4>Branches</h4>
+            <br>    
+            <?php
+                $result = mysqli_query($conn,"SELECT * FROM branches");
+                while($row = mysqli_fetch_array($result)){
+            ?>
+                <h6><?php echo $row['name']; ?></h6>
+            <?php } ?>
+            </div>
+        </div>
+        <div class="col-sm-4  p-2 ">
+            <div class='border border-secondary rounded p-2'>
+            <h4>Students</h4>
+            <?php
+                $result = mysqli_query($conn,"SELECT * FROM students");
+                $count = 0;
+                while($row = mysqli_fetch_array($result)){
+                    $count=$count+1;
+                }
+            ?>
+            <div class="count"><?php echo $count; ?></div>
+            </div>
+        </div>
+        
+        <div class="col-sm-4  p-2 ">
+            <div class='border border-secondary rounded p-2'>
+            <h4>Faculty</h4>
+            <?php
+                $result = mysqli_query($conn,"SELECT * FROM faculty");
+                $count = 0;
+                while($row = mysqli_fetch_array($result)){
+                    $count=$count+1;
+                }
+            ?>
+            <div class="count"><?php echo $count; ?></div>
+            </div>
+            </div>
+        </div>
     </div>
