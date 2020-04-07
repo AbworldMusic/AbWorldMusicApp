@@ -24,12 +24,15 @@ include_once('admin_check.php');
                 <a class="sub-nav active p-2 mr-2" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-home" aria-selected="true">All Branches</a>
             </li>
             <li class="">
-                <a class="sub-nav p-2" id="pills-new-tab" data-toggle="pill" href="#pills-new" role="tab" aria-controls="pills-profile" aria-selected="false">Create New</a>
+                <a class="sub-nav p-2 mr-2" id="pills-new-tab" data-toggle="pill" href="#pills-new" role="tab" aria-controls="pills-profile" aria-selected="false">Create New</a>
+            </li>
+            <li class="">
+                <a class="sub-nav p-2" id="pills-slots-tab" data-toggle="pill" href="#pills-slots" role="tab" aria-controls="pills-slots" aria-selected="false">Slots</a>
             </li>
         </ul>
         <div class="tab-content bg-white" id="pills-tabContent">
             
-            <div class="tab-pane fade show active bg-white" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+            <div class="tab-pane fade show  bg-white" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
                 <table class="table table-striped mt-5 pt-5">
                     <thead>
                         <tr>

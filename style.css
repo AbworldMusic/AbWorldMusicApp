@@ -34,6 +34,9 @@
     height: 250px;
     width: 250px;
 }
+.slot-box{
+    display: inline-block !important;
+}
 @media  screen and (max-width: 520px) {
     .nav-bar{
         display: none;
