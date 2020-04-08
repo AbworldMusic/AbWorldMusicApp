@@ -88,20 +88,31 @@ include_once('db.php');
                         $branchId= $_GET['id'];
                         $result = mysqli_query($conn,"SELECT * FROM slots WHERE branch_id='$branchId'");
                         $slots = array();
+                        $slotIds = array();
                         while($row = mysqli_fetch_array($result)){
                             array_push($slots, $row['slot_name']);
+                            array_push($slotIds, $row['id']);
                         }
+                        
+                            
                     ?>
-                    <div class="p-3 my-3 mt-4 bg-light rounded">
+                    <div class='pt-3'>
+                        <i class='fa fa-pencil'></i> Click on a slot to edit 
+                    </div>
+                    <div class="p-3 my-3 mt-4 bg-light rounded days">
                         <p class="h6">Monday <label class='float-right btn py-0 addSlotBtn' data-toggle="modal" data-target="#addSlot"><i class="fa fa-plus"></i> Add new slot</label></p>
                         <div class='mt-4'>
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
+                                $slotId = $slotIds[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
-                                $slotTime =  explode(" ", $slots[$i])[1].explode(" ", $slots[$i])[2] ;
+                                $slotTime =  explode(" ", $slots[$i])[1]." ". explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Monday"){
                         ?>
-                            <div class='slot-box mr-2 mb-2 py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            <div style="display: inline; ">
+                                <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            </div>
                         <?php
                                 }
                             }
@@ -109,96 +120,121 @@ include_once('db.php');
                         </div>
 
                     </div>
-                    <div class="p-3 my-3 bg-light rounded">
+                    <div class="p-3 my-3 bg-light rounded days">
                         <p class="h6">Tuesday <label class='float-right btn py-0 addSlotBtn' data-toggle="modal" data-target="#addSlot"><i class="fa fa-plus"></i> Add new slot</label></p>
                         <div class='mt-4'>
                         <?php 
+                            
                             for($i=0;$i<sizeof($slots);$i++){
+                                $slotId = $slotIds[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
-                                $slotTime =  explode(" ", $slots[$i])[1].explode(" ", $slots[$i])[2] ;
+                                $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Tuesday"){
                         ?>
-                            <div class='slot-box mr-2 mb-2 py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            <div style="display: inline; ">
+                                <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            </div>
                         <?php
                                 }
                             }
                         ?>
                         </div>
                     </div>
-                    <div class="p-3 my-3 bg-light rounded">
+                    <div class="p-3 my-3 bg-light rounded days">
                         <p class="h6">Wednesday <label class='float-right btn py-0 addSlotBtn' data-toggle="modal" data-target="#addSlot"><i class="fa fa-plus"></i> Add new slot</label></p>
                         <div class='mt-4'>
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
+                                $slotId = $slotIds[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
-                                $slotTime =  explode(" ", $slots[$i])[1].explode(" ", $slots[$i])[2] ;
+                                $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Wednesday"){
                         ?>
-                            <div class='slot-box mr-2 mb-2 py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            <div style="display: inline; ">
+                                <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            </div>  
                         <?php
                                 }
                             }
                         ?>
                         </div>
                     </div>
-                    <div class="p-3 my-3 bg-light rounded">
+                    <div class="p-3 my-3 bg-light rounded days">
                         <p class="h6">Thursday <label class='float-right btn py-0 addSlotBtn' data-toggle="modal" data-target="#addSlot"><i class="fa fa-plus"></i> Add new slot</label></p>
                         <div class='mt-4'>
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
+                                $slotId = $slotIds[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
-                                $slotTime =  explode(" ", $slots[$i])[1].explode(" ", $slots[$i])[2] ;
+                                $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Thursday"){
                         ?>
-                            <div class='slot-box mr-2 mb-2 py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            <div style="display: inline; ">
+                                <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            </div>  
                         <?php
                                 }
                             }
                         ?>
                         </div>
                     </div>
-                    <div class="p-3 my-3 bg-light rounded">
+                    <div class="p-3 my-3 bg-light rounded days">
                         <p class="h6">Friday <label class='float-right btn py-0 addSlotBtn' data-toggle="modal" data-target="#addSlot"><i class="fa fa-plus"></i> Add new slot</label></p>	
                         <div class='mt-4'>
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
+                                $slotId = $slotIds[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
-                                $slotTime =  explode(" ", $slots[$i])[1].explode(" ", $slots[$i])[2] ;
+                                $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Friday"){
                         ?>
-                            <div class='slot-box mr-2 mb-2 py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            <div style="display: inline; ">
+                                <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            </div>  
                         <?php
                                 }
                             }
                         ?>
                         </div>
                     </div>
-                    <div class="p-3 my-3 bg-light rounded">
+                    <div class="p-3 my-3 bg-light rounded days">
                         <p class="h6">Saturday <label class='float-right btn py-0 addSlotBtn' data-toggle="modal" data-target="#addSlot"><i class="fa fa-plus"></i> Add new slot</label></p>	
                         <div class='mt-4'>
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
+                                $slotId = $slotIds[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
-                                $slotTime =  explode(" ", $slots[$i])[1].explode(" ", $slots[$i])[2] ;
+                                $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Saturday"){
                         ?>
-                            <div class='slot-box mr-2 mb-2 py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            <div style="display: inline; ">
+                                <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            </div> 
                         <?php
                                 }
                             }
                         ?>
                         </div>
                     </div>
-                    <div class="p-3 my-3 bg-light rounded">
+                    <div class="p-3 my-3 bg-light rounded days">
                         <p class="h6">Sunday <label class='float-right btn py-0 addSlotBtn' data-toggle="modal" data-target="#addSlot"><i class="fa fa-plus"></i> Add new slot</label></p>	
                         <div class='mt-4'>
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
+                                $slotId = $slotIds[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
-                                $slotTime =  explode(" ", $slots[$i])[1].explode(" ", $slots[$i])[2] ;
+                                $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Sunday"){
                         ?>
-                            <div class='slot-box mr-2 mb-2 py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            <div style="display: inline; ">
+                                <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                            </div> 
                         <?php
                                 }
                             }
@@ -269,6 +305,62 @@ include_once('db.php');
   </div>
 </div>
 
+
+<div id="editSlot" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+		  <p class="font-weight-bold">Edit slot for <?php echo $branchName; ?> branch on <span id="editDay"></span></p>
+		  <form action="edit_slot.php" id="editSlotForm" method="post">
+          <input type="hidden" value="<?php echo $_GET['id'];?>" name='branchId'>
+          <input type="hidden" id="editSlotName" name='editSlotName'>
+          <input type="hidden" id='slotId' name="slotId">
+		  <div class="form-group">
+			<label for="editSlotTime">Select slot time</label>
+			<select class="form-control" id="editSlotTime">
+				<option>8:00 AM</option>
+				<option>8:30 AM</option>
+				<option>9:00 AM</option>
+				<option>9:30 AM</option>
+				<option>10:00 AM</option>
+                <option>10:30 AM</option>
+				<option>11:00 AM</option>
+				<option>11:30 AM</option>
+				<option>12:00 PM</option>
+				<option>12:30 PM</option>
+				<option>1:00 PM</option>
+				<option>1:30 PM</option>
+				<option>2:00 PM</option>
+				<option>2:30 PM</option>
+				<option>3:00 PM</option>
+				<option>3:30 PM</option>
+				<option>4:00 PM</option>
+				<option>4:30 PM</option>
+				<option>5:00 PM</option>
+				<option>5:30 PM</option>
+				<option>6:00 PM</option>
+				<option>6:30 PM</option>
+				<option>7:00 PM</option>
+				<option>7:30 PM</option>
+				<option>8:00 PM</option>
+				<option>8:30 PM</option>
+				<option>9:00 PM</option>
+
+			</select>
+			</div>
+            <button class="btn btn-primary" id="editFormSubmit">Submit</button>
+		  </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <script>
     $(".addSlotBtn").on("click", function(){
         let day = $(this).parent().text().split(" ")[0]
@@ -281,4 +373,20 @@ include_once('db.php');
         $("#slotName").val(day+" "+slotTime);
         $("#newSlotForm").submit();
     })
+    $(".slot-box").on("click", function(){
+        let day = $(this).parents(".days").text().trim().split(" ")[0]
+        $("#editDay").text(day);
+        console.log($(this).text())
+        $('#editSlotTime').val($(this).text());
+        $("#slotId").val($(this).parent().find(".slot-id").text())
+    })
+    
+    $("#editFormSubmit").on("click", function(e){
+        e.preventDefault();
+        let slotTime = $('#editSlotTime').find(":selected").text();
+        let day = $("#editDay").text();     
+        $("#editSlotName").val(day+" "+slotTime);
+        $("#editSlotForm").submit();
+    })
+
 </script>
