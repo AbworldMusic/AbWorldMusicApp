@@ -5,7 +5,7 @@
         include_once('admin_check.php');
         $branchId=$_POST['branchId'];
         $slotName=$_POST['slotName'];
-        
+        $assignedTo=$_POST['classes'];
         
         $query = "SELECT * FROM slots 
                     WHERE branch_id='$branchId' AND slot_name='$slotName'";
@@ -14,7 +14,7 @@
         if($count== 0)
         {
         
-            $sql = "INSERT into slots(branch_id, slot_name) values('$branchId','$slotName')";
+            $sql = "INSERT into slots(branch_id, slot_name, assigned_to) values('$branchId','$slotName','$assignedTo')";
             if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
             }

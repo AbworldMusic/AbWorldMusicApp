@@ -6,8 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $slotId=$_POST['slotId']; 
     $slotName=$_POST['editSlotName'];
     $branchId = $_POST['branchId'];
-    
-    $sql = "UPDATE slots set slot_name='$slotName' WHERE id='$slotId'";
+    $assignedTo=$_POST['classes'];
+
+    $sql = "UPDATE slots set slot_name='$slotName', assigned_to='$assignedTo' WHERE id='$slotId'";
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }

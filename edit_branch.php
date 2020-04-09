@@ -89,9 +89,11 @@ include_once('db.php');
                         $result = mysqli_query($conn,"SELECT * FROM slots WHERE branch_id='$branchId'");
                         $slots = array();
                         $slotIds = array();
+                        $assignedTos = array();
                         while($row = mysqli_fetch_array($result)){
                             array_push($slots, $row['slot_name']);
                             array_push($slotIds, $row['id']);
+                            array_push($assignedTos, $row['assigned_to']);
                         }
                         
                             
@@ -105,12 +107,14 @@ include_once('db.php');
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
                                 $slotId = $slotIds[$i]; 
+                                $assignedTo = $assignedTos[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
                                 $slotTime =  explode(" ", $slots[$i])[1]." ". explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Monday"){
                         ?>
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
                                 <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
                             </div>
                         <?php
@@ -126,13 +130,15 @@ include_once('db.php');
                         <?php 
                             
                             for($i=0;$i<sizeof($slots);$i++){
-                                $slotId = $slotIds[$i]; 
+                                $slotId = $slotIds[$i];
+                                $assignedTo = $assignedTos[$i];  
                                 $slotDay =  explode(" ", $slots[$i])[0];
                                 $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Tuesday"){
                         ?>
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
                                 <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
                             </div>
                         <?php
@@ -147,12 +153,14 @@ include_once('db.php');
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
                                 $slotId = $slotIds[$i]; 
+                                $assignedTo = $assignedTos[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
                                 $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Wednesday"){
                         ?>
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
                                 <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
                             </div>  
                         <?php
@@ -167,12 +175,14 @@ include_once('db.php');
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
                                 $slotId = $slotIds[$i]; 
+                                $assignedTo = $assignedTos[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
                                 $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Thursday"){
                         ?>
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
                                 <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
                             </div>  
                         <?php
@@ -187,12 +197,14 @@ include_once('db.php');
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
                                 $slotId = $slotIds[$i]; 
+                                $assignedTo = $assignedTos[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
                                 $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Friday"){
                         ?>
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
                                 <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
                             </div>  
                         <?php
@@ -207,12 +219,14 @@ include_once('db.php');
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
                                 $slotId = $slotIds[$i]; 
+                                $assignedTo = $assignedTos[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
                                 $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Saturday"){
                         ?>
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
                                 <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
                             </div> 
                         <?php
@@ -227,12 +241,14 @@ include_once('db.php');
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
                                 $slotId = $slotIds[$i]; 
+                                $assignedTo = $assignedTos[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
                                 $slotTime =  explode(" ", $slots[$i])[1]." ".explode(" ", $slots[$i])[2] ;
                                 if($slotDay=="Sunday"){
                         ?>
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
+                                <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
                                 <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
                             </div> 
                         <?php
@@ -262,41 +278,51 @@ include_once('db.php');
       <div class="modal-body">
 		  <p class="font-weight-bold">Add a new slot for the <?php echo $branchName; ?> branch on <span id="day"></span></p>
 		  <form action="add_new_slot.php" id="newSlotForm" method="post">
-          <input type="hidden" value="<?php echo $_GET['id'];?>" name='branchId'>
-          <input type="hidden" id="slotName" name='slotName'>
-		  <div class="form-group">
-			<label for="slotTime">Select slot time</label>
-			<select class="form-control" id="slotTime">
-				<option>8:00 AM</option>
-				<option>8:30 AM</option>
-				<option>9:00 AM</option>
-				<option>9:30 AM</option>
-				<option>10:00 AM</option>
-                <option>10:30 AM</option>
-				<option>11:00 AM</option>
-				<option>11:30 AM</option>
-				<option>12:00 PM</option>
-				<option>12:30 PM</option>
-				<option>1:00 PM</option>
-				<option>1:30 PM</option>
-				<option>2:00 PM</option>
-				<option>2:30 PM</option>
-				<option>3:00 PM</option>
-				<option>3:30 PM</option>
-				<option>4:00 PM</option>
-				<option>4:30 PM</option>
-				<option>5:00 PM</option>
-				<option>5:30 PM</option>
-				<option>6:00 PM</option>
-				<option>6:30 PM</option>
-				<option>7:00 PM</option>
-				<option>7:30 PM</option>
-				<option>8:00 PM</option>
-				<option>8:30 PM</option>
-				<option>9:00 PM</option>
+            <input type="hidden" value="<?php echo $_GET['id'];?>" name='branchId'>
+            <input type="hidden" id="slotName" name='slotName'>
+            <div class="form-group">
+                <label for="slotTime">Select slot time</label>
+                <select class="form-control" id="slotTime">
+                    <option>8:00 AM</option>
+                    <option>8:30 AM</option>
+                    <option>9:00 AM</option>
+                    <option>9:30 AM</option>
+                    <option>10:00 AM</option>
+                    <option>10:30 AM</option>
+                    <option>11:00 AM</option>
+                    <option>11:30 AM</option>
+                    <option>12:00 PM</option>
+                    <option>12:30 PM</option>
+                    <option>1:00 PM</option>
+                    <option>1:30 PM</option>
+                    <option>2:00 PM</option>
+                    <option>2:30 PM</option>
+                    <option>3:00 PM</option>
+                    <option>3:30 PM</option>
+                    <option>4:00 PM</option>
+                    <option>4:30 PM</option>
+                    <option>5:00 PM</option>
+                    <option>5:30 PM</option>
+                    <option>6:00 PM</option>
+                    <option>6:30 PM</option>
+                    <option>7:00 PM</option>
+                    <option>7:30 PM</option>
+                    <option>8:00 PM</option>
+                    <option>8:30 PM</option>
+                    <option>9:00 PM</option>
 
-			</select>
+                </select>
 			</div>
+            <div class='row'>
+                <div class='form-group pl-3'>
+                    <p class="mb-1">Enter Class names separated by commas.</p>
+                    <small>Eg: 6C,7B</small>
+                </div>
+                <div class='col-sm-6 mb-3'>
+                    <input type="text" name="classes" id="classes" class='form-control'>
+                </div>
+            </div>
+            
             <button class="btn btn-primary" id="formSubmit">Submit</button>
 		  </form>
       </div>
@@ -317,12 +343,12 @@ include_once('db.php');
       <div class="modal-body">
 		  <p class="font-weight-bold">Edit slot for <?php echo $branchName; ?> branch on <span id="editDay"></span></p>
 		  <form action="edit_slot.php" id="editSlotForm" method="post">
-          <input type="hidden" value="<?php echo $_GET['id'];?>" name='branchId'>
-          <input type="hidden" id="editSlotName" name='editSlotName'>
-          <input type="hidden" id='slotId' name="slotId">
-		  <div class="form-group">
-			<label for="editSlotTime">Select slot time</label>
-			<select class="form-control" id="editSlotTime">
+            <input type="hidden" value="<?php echo $_GET['id'];?>" name='branchId'>
+            <input type="hidden" id="editSlotName" name='editSlotName'>
+            <input type="hidden" id='slotId' name="slotId">
+            <div class="form-group">
+                <label for="editSlotTime">Select slot time</label>
+                <select class="form-control" id="editSlotTime">
 				<option>8:00 AM</option>
 				<option>8:30 AM</option>
 				<option>9:00 AM</option>
@@ -351,8 +377,17 @@ include_once('db.php');
 				<option>8:30 PM</option>
 				<option>9:00 PM</option>
 
-			</select>
+			    </select>
 			</div>
+            <div class='row'>
+                <div class='form-group pl-3'>
+                    <p class="mb-1">Enter Class names separated by commas.</p>
+                    <small>Eg: 6C,7B</small>
+                </div>
+                <div class='col-sm-6 mb-3'>
+                    <input type="text" name="classes" id="editClasses" class='form-control'>
+                </div>
+            </div>
             <button class="btn btn-primary" id="editFormSubmit">Submit</button>
 		  </form>
       </div>
@@ -371,14 +406,47 @@ include_once('db.php');
         let slotTime = $('#slotTime').find(":selected").text();
         let day = $("#day").text();
         $("#slotName").val(day+" "+slotTime);
-        $("#newSlotForm").submit();
+        let valid = true; 
+        let classNames="";
+        let classes_list = $("#classes").val().split(",");
+        
+
+        for(let i=0;i<classes_list.length;i++){
+            let eachClass = classes_list[i].trim().toUpperCase();
+            
+            if(eachClass.length!=2){
+                alert("Invalid class names. Please check the format and re enter")
+                valid=false;
+            }
+            else if(isNaN(parseInt(eachClass[0]))){
+                alert("Invalid class names. Please check the format and re enter")
+                valid=false;
+            }
+            else if(parseInt(eachClass[0])<1 || parseInt(eachClass[0])>12){
+                alert("Invalid class names. Please check the format and re enter")
+                valid=false;
+            }
+            else if(eachClass[1].charCodeAt(0) <65 || eachClass[1].charCodeAt(0)>90){
+                alert("Invalid class names. Please check the format and re enter")
+                valid=false;
+            }
+            else{
+                classNames = classNames+eachClass
+            }
+        }
+        if(valid==true){
+            classes_list = $("#classes").val().replace(/ /g, "");
+            $("#classes").val(classes_list)
+            $("#newSlotForm").submit();
+        }
+            
     })
     $(".slot-box").on("click", function(){
         let day = $(this).parents(".days").text().trim().split(" ")[0]
         $("#editDay").text(day);
-        console.log($(this).text())
         $('#editSlotTime').val($(this).text());
         $("#slotId").val($(this).parent().find(".slot-id").text())
+        $("#editClasses").val($(this).parent().find(".assigned-to").text())
     })
     
     $("#editFormSubmit").on("click", function(e){
@@ -386,7 +454,40 @@ include_once('db.php');
         let slotTime = $('#editSlotTime').find(":selected").text();
         let day = $("#editDay").text();     
         $("#editSlotName").val(day+" "+slotTime);
-        $("#editSlotForm").submit();
+        let valid = true; 
+        let classNames="";
+        let classes_list = $("#editClasses").val().split(",");
+        
+
+        for(let i=0;i<classes_list.length;i++){
+            let eachClass = classes_list[i].trim().toUpperCase();
+            
+            if(eachClass.length!=2){
+                alert("Invalid class names. Please check the format and re enter")
+                valid=false;
+            }
+            else if(isNaN(parseInt(eachClass[0]))){
+                alert("Invalid class names. Please check the format and re enter")
+                valid=false;
+            }
+            else if(parseInt(eachClass[0])<1 || parseInt(eachClass[0])>12){
+                alert("Invalid class names. Please check the format and re enter")
+                valid=false;
+            }
+            else if(eachClass[1].charCodeAt(0) <65 || eachClass[1].charCodeAt(0)>90){
+                alert("Invalid class names. Please check the format and re enter")
+                valid=false;
+            }
+            else{
+                classNames = classNames+eachClass
+            }
+        }
+        if(valid==true){
+            classes_list = $("#editClasses").val().replace(/ /g, "");
+            $("#editClasses").val(classes_list)
+            $("#editSlotForm").submit();
+        }
+        
     })
 
 </script>
