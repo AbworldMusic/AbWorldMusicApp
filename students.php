@@ -75,6 +75,19 @@ include_once('admin_check.php');
                         <label for="studentAge" class="font-label mt-3">Student Age</label>
                         <input id="studentAge" name="studentAge" type="number" min=0 max=120 class="form-control"/>
                         
+                        <label for="studentBranch" class="font-label mt-3">Branch</label>
+                        <select class="form-control" id="studentBranch" name="studentBranch">
+                        <?php 
+                            include_once('db.php');
+                            $result = mysqli_query($conn,"SELECT * FROM branches");
+                            
+                            while($row1 = mysqli_fetch_array($result)){
+                            
+                        ?>
+                            <option ><?php echo $row1['name']; ?></option>
+                        <?php } ?>
+                        </select>
+                        
                         <label for="studentClass" class="font-label mt-3">Student Class/Standard</label>
                         <select class="form-control" id="studentClass" name="studentClass">
                             <option>1</option>

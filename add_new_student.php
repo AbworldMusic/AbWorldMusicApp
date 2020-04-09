@@ -7,14 +7,15 @@
         $age=$_POST['studentAge'];
         $class=$_POST['studentClass'];
         $section=$_POST['studentSection'];
+        $branch=$_POST['studentBranch'];
         $level=$_POST['studentLevel'];
         $parentName=$_POST['parentName'];
         $parentPhone=$_POST['parentPhone'];
         $parentEmail=$_POST['parentEmail'];
         
 
-        $sql = "INSERT into Students (name, age, level, parentName, parentPhone, parentEmail, class, section)
-                values('$name','$age','$level','$parentName', '$parentPhone', '$parentEmail', '$class', '$section')";
+        $sql = "INSERT into Students (name, age, branch, level, parentName, parentPhone, parentEmail, class, section)
+                values('$name','$age','$branch','$level','$parentName', '$parentPhone', '$parentEmail', '$class', '$section')";
         if (!$conn) {
           die("Connection failed: " . mysqli_connect_error());
         }
