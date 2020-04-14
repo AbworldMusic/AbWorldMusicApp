@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $level=$_POST['studentLevel'];
     $parentName=$_POST['parentName'];
     $parentPhone=$_POST['parentPhone'];
+    $parentPhone2=$_POST['parentPhone2'];
     $parentEmail=$_POST['parentEmail'];
     $class=$_POST['studentClass'];
     $section=$_POST['studentSection'];
@@ -18,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     
     $sql = "UPDATE Students set name='$name', age='$age', level='$level',parentName='$parentName',branch='$branch',
-            class='$class', section='$section', parentPhone='$parentPhone', parentEmail='$parentEmail' WHERE id='$id'";
+            class='$class', section='$section', parentPhone='$parentPhone', parentPhone2='$parentPhone2', parentEmail='$parentEmail' WHERE id='$id'";
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
@@ -136,8 +137,11 @@ include_once('db.php');
                         <label for="parentName" class="font-label mt-3">Parent Name</label>
                         <input id="parentName" name="parentName" type="text" class="form-control" value="<?php echo $row['parentName']; ?>"/>
                         
-                        <label for="parentPhone" class="font-label mt-3">Parent phone</label>
+                        <label for="parentPhone" class="font-label mt-3">Parent phone 1</label>
                         <input id="parentPhone" name="parentPhone" type="number" min=1000000000 max=9999999999 class="form-control" value="<?php echo $row['parentPhone']; ?>"/>
+                        
+                        <label for="parentPhone2" class="font-label mt-3">Parent phone 2</label>
+                        <input id="parentPhone2" name="parentPhone2" type="number" min=1000000000 max=9999999999 class="form-control" value="<?php echo $row['parentPhone2']; ?>"/>
                         
                         <label for="parentEmail" class="font-label mt-3">Parent email</label>
                         <input id="parentEmail" name="parentEmail" type="email" class="form-control" value="<?php echo $row['parentEmail']; ?>"/>

@@ -70,7 +70,7 @@ include_once('admin_check.php');
                 <div class="m-3 pt-4  col-sm-12 col-lg-6">
                     <form action="add_new_student.php" method='post' class='form-group'>
                         <label for="studentName" class="font-label mt-1">Student Name</label>
-                        <input id="studentName" name="studentName" type="text" class="form-control"/>
+                        <input id="studentName" required name="studentName" type="text" class="form-control"/>
 
                         <label for="studentAge" class="font-label mt-3">Student Age</label>
                         <input id="studentAge" name="studentAge" type="number" min=0 max=120 class="form-control"/>
@@ -139,13 +139,16 @@ include_once('admin_check.php');
                         <input id="studentLevel" name="studentLevel" type="number" min=0 max=20  class="form-control"/>
                         
                         <label for="parentName" class="font-label mt-3">Parent Name</label>
-                        <input id="parentName" name="parentName" type="text" class="form-control"/>
+                        <input id="parentName" required name="parentName" type="text" class="form-control"/>
                         
-                        <label for="parentPhone" class="font-label mt-3">Parent phone</label>
-                        <input id="parentPhone" name="parentPhone" type="number" min=1000000000 max=9999999999 class="form-control"/>
+                        <label for="parentPhone" class="font-label mt-3">Parent phone 1</label>
+                        <input id="parentPhone" required name="parentPhone" type="number" min=1000000000 max=9999999999 class="form-control"/>
+                        
+                        <label for="parentPhone2" class="font-label mt-3">Parent phone 2</label>
+                        <input id="parentPhone2" required name="parentPhone2" type="number" min=1000000000 max=9999999999 class="form-control"/>
                         
                         <label for="parentEmail" class="font-label mt-3">Parent email</label>
-                        <input id="parentEmail" name="parentEmail" type="email" class="form-control"/>
+                        <input id="parentEmail"  name="parentEmail" type="email" class="form-control"/>
                         
                         <button type="submit" class="btn btn-info mt-4">Submit</button>
                     </form>
