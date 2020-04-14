@@ -67,8 +67,10 @@ include_once('db.php');
                         <input id="studentAge" name="studentAge" type="number" min=0 max=120 class="form-control" value="<?php echo $row['age']; ?>"/>
                         
                         <label for="studentBranch" class="font-label mt-3">Branch</label>
-                        <select class="form-control" id="studentBranch" name="studentBranch">
+                        <span id='currentBranch' class='d-none'><?php echo $row['branch']; ?></span>
+                        <select class="form-control" id="studentBranch" name="studentBranch">                        
                         <?php 
+                            
                             include_once('db.php');
                             $result = mysqli_query($conn,"SELECT * FROM branches");
                             
@@ -80,7 +82,8 @@ include_once('db.php');
                         </select>
                         
                         <label for="studentClass" class="font-label mt-3">Student Class/Standard</label>
-                        <select class="form-control" id="studentClass" name="studentClass">
+                        <span id='currentClass' class='d-none'><?php echo $row['class']; ?></span>
+                        <select class="form-control" id="studentClass" name="studentClass">                        
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -95,7 +98,8 @@ include_once('db.php');
                             <option>12</option>
                         </select>
                         <label for="studentSection" class="font-label mt-3">Student Section</label>
-                        <select class="form-control" id="studentSection" name="studentSection">
+                        <span id='currentSection' class='d-none'><?php echo $row['section']; ?></span>
+                        <select class="form-control" id="studentSection" name="studentSection">                        
                             <option>A</option>
                             <option>B</option>
                             <option>C</option>
@@ -150,3 +154,12 @@ include_once('db.php');
     </div>
 </div>
 <?php } ?>
+<script>
+    $(document).ready(function(){
+        $("#studentBranch").val($("#currentBranch").text());
+        $("#studentClass").val($("#currentClass").text());
+        $("#studentSection").val($("#currentSection").text());
+        console.log($("#currentClass").text())
+        console.log($("#currentBranch").text())
+    })
+</script>
