@@ -53,7 +53,7 @@ include_once('admin_check.php');
                         ?>
                         <tr>
                             <td><?php echo $slno; ?></td>
-                            <td><?php echo $row['name']; ?></td>
+                            <td><a href="edit_branch.php?id=<?php echo $row['id']?>"><?php echo $row['name']; ?></a></td>
                             <td><?php echo $row['incharge']; ?></td>
                             <td><?php echo $row['capacity']; ?></td>
                             <td><?php echo $row['phone']; ?></td>
