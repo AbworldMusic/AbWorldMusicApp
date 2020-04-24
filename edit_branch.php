@@ -302,8 +302,9 @@ include_once('db.php');
                             $branch = mysqli_query($conn,"SELECT * FROM branches WHERE id='$id' LIMIT 1");
                             $branchName = mysqli_fetch_array($branch)['name'] ;
                             $students = mysqli_query($conn,"SELECT * FROM Students WHERE branch='$branchName'");
-                            while($row = mysqli_fetch_array($students)){
                             $slno = 1;
+                            while($row = mysqli_fetch_array($students)){
+                            
                         ?>
                               <tr>
                                 <td><?php echo $slno; ?></td>
