@@ -16,9 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $class=$_POST['studentClass'];
     $section=$_POST['studentSection'];
     $branch=$_POST['studentBranch'];
+    $gender = $_POST['gender'];
+    if(isset($_POST['brainMatrix'])) {
+        $brain_matrix = 1;
+    }
+    else{
+        $brain_matrix = 0;
+    }
     
-    
-    $sql = "UPDATE Students set name='$name', age='$age', level='$level',parentName='$parentName',branch='$branch',
+    $sql = "UPDATE Students set name='$name',brain_matrix='$brain_matrix',gender='$gender', age='$age', level='$level',parentName='$parentName',branch='$branch',
             class='$class', section='$section', parentPhone='$parentPhone', parentPhone2='$parentPhone2', parentEmail='$parentEmail' WHERE id='$id'";
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
@@ -63,6 +69,35 @@ include_once('db.php');
 
                         <label for="studentName" class="font-label mt-1">Student Name</label>
                         <input id="studentName" name="studentName" type="text" class="form-control" value="<?php echo $row['name']; ?>"/>
+                        
+                        <label for="studentAge" class="font-label mt-3">Student belongs to brain matrix?</label>
+                        <label class="check-box form-group  "> Brain Matrix
+                            <?php if($row['brain_matrix']){ ?>
+                                <input type="checkbox" checked name="brainMatrix">
+                            <?php } else { ?>
+                                <input type="checkbox"  name="brainMatrix">
+                                <?php }  ?>
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label for="studentAge" class="font-label mt-3">Student Gender</label>
+                        <label class="check-box form-group  "> Male
+                            <?php if($row['gender']=="Male"){ ?>  
+                                <input type="radio" checked name="gender"  value="Male">
+                            <?php } else { ?>
+                                <input type="radio" name="gender"  value="Male">
+                            <?php } ?>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="check-box form-group  "> Female
+                            <?php if($row['gender']=="Female"){ ?>  
+                                <input type="radio" checked name="gender"  value="Female">
+                            <?php } else { ?>
+                                <input type="radio" name="gender"  value="Female">
+                            <?php } ?>
+
+                            <span class="checkmark"></span>
+                        </label>
 
                         <label for="studentAge" class="font-label mt-3">Student Age</label>
                         <input id="studentAge" name="studentAge" type="number" min=0 max=120 class="form-control" value="<?php echo $row['age']; ?>"/>
