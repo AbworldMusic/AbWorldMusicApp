@@ -315,6 +315,8 @@ include_once('db.php');
                             $slno +=1;
                         } ?>
                         </tbody>
+                    </table>
+                    
                 </div>  
             </div>
         </div>
