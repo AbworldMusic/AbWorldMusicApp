@@ -347,36 +347,13 @@ include_once('db.php');
             <input type="hidden" id="slotName" name='slotName'>
             <div class="form-group">
                 <label for="slotTime">Select slot time</label>
-                <select class="form-control" id="slotTime">
-                    <option>8:00 AM</option>
-                    <option>8:30 AM</option>
-                    <option>9:00 AM</option>
-                    <option>9:30 AM</option>
-                    <option>10:00 AM</option>
-                    <option>10:30 AM</option>
-                    <option>11:00 AM</option>
-                    <option>11:30 AM</option>
-                    <option>12:00 PM</option>
-                    <option>12:30 PM</option>
-                    <option>1:00 PM</option>
-                    <option>1:30 PM</option>
-                    <option>2:00 PM</option>
-                    <option>2:30 PM</option>
-                    <option>3:00 PM</option>
-                    <option>3:30 PM</option>
-                    <option>4:00 PM</option>
-                    <option>4:30 PM</option>
-                    <option>5:00 PM</option>
-                    <option>5:30 PM</option>
-                    <option>6:00 PM</option>
-                    <option>6:30 PM</option>
-                    <option>7:00 PM</option>
-                    <option>7:30 PM</option>
-                    <option>8:00 PM</option>
-                    <option>8:30 PM</option>
-                    <option>9:00 PM</option>
-
+                <input type="number" max=12 min=1 maxlength="2" id="hours">
+                <input type="number" max=59 min=0 maxlength="2" id="minutes">
+                <select class="" id="slotTime">
+                    <option>AM</option>
+                    <option>PM</option>
                 </select>
+               
 			</div>
             <div class='row'>
                 <div class='form-group pl-3'>
@@ -388,7 +365,7 @@ include_once('db.php');
                 </div>
             </div>
             
-            <button class="btn btn-primary" id="formSubmit">Submit</button>
+            <button class="btn btn-primary"  id="formSubmit">Submit</button>
 		  </form>
       </div>
     </div>
@@ -412,38 +389,16 @@ include_once('db.php');
             <input type="hidden" id="editSlotName" name='editSlotName'>
             <input type="hidden" id='slotId' name="slotId">
             <div class="form-group">
-                <label for="editSlotTime">Select slot time</label>
-                <select class="form-control" id="editSlotTime">
-				<option>8:00 AM</option>
-				<option>8:30 AM</option>
-				<option>9:00 AM</option>
-				<option>9:30 AM</option>
-				<option>10:00 AM</option>
-                <option>10:30 AM</option>
-				<option>11:00 AM</option>
-				<option>11:30 AM</option>
-				<option>12:00 PM</option>
-				<option>12:30 PM</option>
-				<option>1:00 PM</option>
-				<option>1:30 PM</option>
-				<option>2:00 PM</option>
-				<option>2:30 PM</option>
-				<option>3:00 PM</option>
-				<option>3:30 PM</option>
-				<option>4:00 PM</option>
-				<option>4:30 PM</option>
-				<option>5:00 PM</option>
-				<option>5:30 PM</option>
-				<option>6:00 PM</option>
-				<option>6:30 PM</option>
-				<option>7:00 PM</option>
-				<option>7:30 PM</option>
-				<option>8:00 PM</option>
-				<option>8:30 PM</option>
-				<option>9:00 PM</option>
-
-			    </select>
+                <label for="slotTime">Select slot time</label>
+                <input type="number" max=12 min=1 maxlength="2" id="editHours">
+                <input type="number" max=59 min=0 maxlength="2" id="editMinutes">
+                <select class="" id="editSlotTime">
+                    <option>AM</option>
+                    <option>PM</option>
+                </select>
+               
 			</div>
+            
             <div class='row'>
                 <div class='form-group pl-3'>
                     <p class="mb-1">Enter Class names separated by commas.</p>
@@ -463,13 +418,60 @@ include_once('db.php');
 </div>
 
 <script>
+    $("#hours").keyup(function(){
+       let h = $(this).val();
+       if(parseInt(h)<1){
+        $(this).val("1");
+       } 
+       else if(parseInt(h)>12){
+        $(this).val("12");
+       }
+    })
+    $("#editHours").keyup(function(){
+       let h = $(this).val();
+       if(parseInt(h)<1){
+        $(this).val("1");
+       } 
+       else if(parseInt(h)>12){
+        $(this).val("12");
+       }
+    })
+    $("#minutes").keyup(function(){
+       let h = $(this).val();
+       if(parseInt(h)<0){
+        $(this).val("00");
+       } 
+       else if(parseInt(h)>59){
+        $(this).val("59");
+       }
+    })
+    $("#editMinutes").keyup(function(){
+       let h = $(this).val();
+       if(parseInt(h)<0){
+        $(this).val("00");
+       } 
+       else if(parseInt(h)>59){
+        $(this).val("59");
+       }
+    })
     $(".addSlotBtn").on("click", function(){
         let day = $(this).parent().text().split(" ")[0]
         $("#day").text(day);
     })
     $("#formSubmit").on("click", function(e){
         e.preventDefault();
-        let slotTime = $('#slotTime').find(":selected").text();
+        let h = $("#hours").val();
+        let m = $("#minutes").val()
+        if(h.trim()=="" || m.trim()==""){
+            alert("Enter correct time")
+        }
+        if (h.length==1){
+            h = "0"+ h;
+        }
+        if (m.length==1){
+            m = "0"+ m;
+        }
+        let slotTime = h+":"+m+" "+$('#slotTime').find(":selected").text();
         let day = $("#day").text();
         $("#slotName").val(day+" "+slotTime);
         let valid = true; 
@@ -511,7 +513,9 @@ include_once('db.php');
         let day = $(this).parents(".days").text().trim().split(" ")[0]
         $("#editDay").text(day);
         let time = $(this).text().trim().split(" ")
-        $('#editSlotTime').val(time[0]+" "+time[1]);
+        $("#editHours").val(time[0].split(":")[0])
+        $("#editMinutes").val(time[0].split(":")[1])
+        $('#editSlotTime').val(time[1]);
         let id = $(this).parent().find(".slot-id").text()
         $("#slotId").val(id)
         $(".delete-slot").attr('href', 'delete_slot.php?id='+id+"&&branch_id="+<?php echo $_GET['id']; ?>)
@@ -520,7 +524,18 @@ include_once('db.php');
     
     $("#editFormSubmit").on("click", function(e){
         e.preventDefault();
-        let slotTime = $('#editSlotTime').find(":selected").text();
+        let h = $("#editHours").val();
+        let m = $("#editMinutes").val()
+        if(h.trim()=="" || m.trim()==""){
+            alert("Enter correct time")
+        }
+        if (h.length==1){
+            h = "0"+ h;
+        }
+        if (m.length==1){
+            m = "0"+ m;
+        }
+        let slotTime = h+":"+m+" "+$('#editSlotTime').find(":selected").text();
         let day = $("#editDay").text();     
         $("#editSlotName").val(day+" "+slotTime);
         let valid = true; 
