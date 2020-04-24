@@ -89,10 +89,11 @@ include_once('db.php');
                 <div class="tab-pane active show fade bg-white col-md-6 p-0" id="pills-slots" role="tabpanel" aria-labelledby="pills-slots-tab">
                     <?php 
                         $branchId= $_GET['id'];
-                        $result = mysqli_query($conn,"SELECT * FROM slots WHERE branch_id='$branchId'");
+                        $result = mysqli_query($conn,"SELECT * FROM slots WHERE branch_id='$branchId' order by am_pm, slot_time");
                         $slots = array();
                         $slotIds = array();
                         $assignedTos = array();
+                        
                         while($row = mysqli_fetch_array($result)){
                             array_push($slots, $row['slot_name']);
                             array_push($slotIds, $row['id']);
@@ -109,6 +110,7 @@ include_once('db.php');
                         <div class='mt-4'>
                         <?php 
                             for($i=0;$i<sizeof($slots);$i++){
+
                                 $slotId = $slotIds[$i]; 
                                 $assignedTo = $assignedTos[$i]; 
                                 $slotDay =  explode(" ", $slots[$i])[0];
