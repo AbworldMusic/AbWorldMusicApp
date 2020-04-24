@@ -292,7 +292,6 @@ include_once('db.php');
                             <th scope="col">Gender</th>
                             <th scope="col">Class</th>
                             <th scope="col">Section</th>
-                            <th scope="col">Branch</th>
                             <th></th>
                             <th></th>
                             </tr>
@@ -312,12 +311,11 @@ include_once('db.php');
                                 <td><?php echo $row['gender']; ?></td>
                                 <td><?php echo $row['class']; ?></td>
                                 <td><?php echo $row['section']; ?></td>
-                                <td><?php echo $row['branch']; ?></td>
                                 <td><a href="edit_student.php?id=<?php echo $row['id']?>" class='btn btn-primary py-1 mr-2'>Edit</a></td>
                                 <td><a onclick="return confirm('Are you sure?');" href="delete_student.php?id=<?php echo $row['id']?>" class='btn btn-danger py-1'>Delete</a></td>
                              </tr>
                        <?php 
-                            $slno +=1;
+                            $slno = $slno+1;
                         } ?>
                         </tbody>
                     </table>
