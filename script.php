@@ -10,7 +10,7 @@
         if( strlen($slotTime) < 2){
             $slotTime = "0".$slotTime.":".explode(":" , $row['slot_time'])[1];
         }    
-            $sql = "UPDATE slots set slot_time='$newslotTime' WHERE id='$slotId'";
+            $sql = "UPDATE slots set slot_time='$slotTime', am_pm='$am_pm' WHERE id='$slotId'";
             $count = 0; 
             if (mysqli_query($conn, $sql)) {
                 $count = $count+1;
