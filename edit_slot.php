@@ -6,6 +6,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $slotId=$_POST['slotId']; 
     $slotName=$_POST['editSlotName'];
     $slotTime = explode(" " , $slotName)[1]; 
+    $slotTime1 = explode(":" , $slotTime)[0];
+    if( strlen($slotTime1) < 2){
+        $slotTime = "0".$slotTime1.":".explode(":" , $slotName)[1];
+    } 
     $slotAmpm = explode(" " , $slotName)[2]; 
     $branchId = $_POST['branchId'];
     $assignedTo=$_POST['classes'];

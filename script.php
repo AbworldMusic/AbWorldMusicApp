@@ -7,8 +7,9 @@
         $am_pm = explode(" " , $row['slot_name'])[2];
 
         $slotId = $row['id'];
-        if( strlen($slotTime) < 2){
-            $slotTime = "0".$slotTime.":".explode(":" , $row['slot_time'])[1];
+        $slotTime1 = explode(":" , $slotTime)[0];
+        if( strlen($slotTime1) < 2){
+            $slotTime = "0".$slotTime1.":".explode(":" , $row['slot_time'])[1];
         }    
             $sql = "UPDATE slots set slot_time='$slotTime', am_pm='$am_pm' WHERE id='$slotId'";
             $count = 0; 
