@@ -299,7 +299,7 @@ include_once('db.php');
                         </thead>
                         <tbody>
                         <?php 
-                            $students = mysqli_query($conn,"SELECT * FROM students WHERE branch='$branchName'");
+                            $students = mysqli_query($conn,"SELECT * FROM Students WHERE branch='$branchName'");
                             while($row = mysqli_fetch_array($students)){
                             $slno = 1;
                         ?>
