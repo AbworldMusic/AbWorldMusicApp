@@ -284,6 +284,7 @@ include_once('db.php');
                                         
                 </div>
                 <div class="tab-pane  fade bg-white col-md-12 p-0" id="pills-students" role="tabpanel" aria-labelledby="pills-all-students">
+                    <?php echo $branchName; ?>
                     <table class="table table-striped mt-5 pt-5">
                         <thead>
                             <tr>
@@ -303,7 +304,8 @@ include_once('db.php');
                             while($row = mysqli_fetch_array($students)){
                             $slno = 1;
                         ?>
-                            <td><?php echo $slno; ?></td>
+                              <tr>
+                                <td><?php echo $slno; ?></td>
                                 <td><?php echo $row['name']; ?></td>
                                 <td><?php echo $row['gender']; ?></td>
                                 <td><?php echo $row['class']; ?></td>
@@ -311,7 +313,8 @@ include_once('db.php');
                                 <td><?php echo $row['branch']; ?></td>
                                 <td><a href="edit_student.php?id=<?php echo $row['id']?>" class='btn btn-primary py-1 mr-2'>Edit</a></td>
                                 <td><a onclick="return confirm('Are you sure?');" href="delete_student.php?id=<?php echo $row['id']?>" class='btn btn-danger py-1'>Delete</a></td>
-                        <?php 
+                             </tr>
+                       <?php 
                             $slno +=1;
                         } ?>
                         </tbody>
