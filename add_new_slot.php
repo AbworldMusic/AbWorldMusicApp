@@ -6,6 +6,12 @@
         $branchId=$_POST['branchId'];
         $slotName=$_POST['slotName'];
         $assignedTo=$_POST['classes'];
+        $slotTime = explode(" " , $slotName)[1]; 
+        $slotTime1 = explode(":" , $slotTime)[0];
+        if( strlen($slotTime1) < 2){
+            $slotTime = "0".$slotTime1.":".explode(":" , $slotName)[1];
+        } 
+        $slotAmpm = explode(" " , $slotName)[2]; 
         
         $query = "SELECT * FROM slots 
                     WHERE branch_id='$branchId' AND slot_name='$slotName'";
@@ -14,7 +20,8 @@
         if($count== 0)
         {
         
-            $sql = "INSERT into slots(branch_id, slot_name, assigned_to) values('$branchId','$slotName','$assignedTo')";
+            $sql = "INSERT into slots(branch_id, slot_name, slot_time, am_pm, assigned_to) 
+                    values('$branchId','$slotName','$slotTime', '$slotAmpm','$assignedTo')";
             if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
             }
