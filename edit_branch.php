@@ -284,7 +284,6 @@ include_once('db.php');
                                         
                 </div>
                 <div class="tab-pane  fade bg-white col-md-12 p-0" id="pills-students" role="tabpanel" aria-labelledby="pills-all-students">
-                    <?php echo $branchName; ?>
                     <table class="table table-striped mt-5 pt-5">
                         <thead>
                             <tr>
@@ -300,6 +299,10 @@ include_once('db.php');
                         </thead>
                         <tbody>
                         <?php 
+                            $id = $_GET['id'];
+                            $branch = mysqli_query($conn,"SELECT * FROM branches WHERE id='$id' LIMIT 1");
+                            $branchName = mysqli_fetch_array($branch)['name'] ;
+                            echo $branchName;
                             $students = mysqli_query($conn,"SELECT * FROM Students WHERE branch='$branchName'");
                             while($row = mysqli_fetch_array($students)){
                             $slno = 1;
