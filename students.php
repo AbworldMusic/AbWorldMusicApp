@@ -35,11 +35,11 @@ include_once('admin_check.php');
                             <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Age</th>
-                            <th scope="col">Level</th>
-                            <th scope="col">Parent Name</th>
-                            <th scope="col">Parent Phone</th>
-                            <th scope="col">Parent Emaii</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Class</th>
+                            <th scope="col">Section</th>
+                            <th scope="col">Branch</th>
+                            <th></th>
                             <th></th>
                             </tr>
                         </thead>
@@ -55,11 +55,10 @@ include_once('admin_check.php');
                             <tr>
                                 <td><?php echo $slno; ?></td>
                                 <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['age']; ?></td>
-                                <td><?php echo $row['level']; ?></td>
-                                <td><?php echo $row['parentName']; ?></td>
-                                <td><?php echo $row['parentPhone']; ?></td>
-                                <td><?php echo $row['parentEmail']; ?></td>
+                                <td><?php echo $row['gender']; ?></td>
+                                <td><?php echo $row['class']; ?></td>
+                                <td><?php echo $row['section']; ?></td>
+                                <td><?php echo $row['branch']; ?></td>
                                 <td><a href="edit_student.php?id=<?php echo $row['id']?>" class='btn btn-primary py-1 mr-2'>Edit</a></td>
                                 <td><a onclick="return confirm('Are you sure?');" href="delete_student.php?id=<?php echo $row['id']?>" class='btn btn-danger py-1'>Delete</a></td>
                             </tr>

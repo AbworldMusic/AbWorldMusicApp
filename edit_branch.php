@@ -48,6 +48,9 @@ include_once('db.php');
                 <li class="">
                     <a class="sub-nav  p-2 mr-2" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-home" aria-selected="true">Branch Information</a>
                 </li>
+                <li class="">
+                    <a class="sub-nav  p-2 mr-2" id="pills-students-tab" data-toggle="pill" href="#pills-students" role="tab" aria-controls="pills-students" aria-selected="true">Students</a>
+                </li>
             </ul>
             
             <div class="tab-content bg-white" id="pills-tabContent">
@@ -115,7 +118,10 @@ include_once('db.php');
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
                                 <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
-                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'>
+                                    <?php echo $slotTime; ?>
+                                    <div class='font-weight-bold mt-2' ><?php echo $assignedTo; ?></div>
+                                </div>
                             </div>
                         <?php
                                 }
@@ -139,7 +145,10 @@ include_once('db.php');
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
                                 <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
-                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'>
+                                    <?php echo $slotTime; ?>
+                                    <div class='font-weight-bold mt-2' ><?php echo $assignedTo; ?></div>
+                                </div>
                             </div>
                         <?php
                                 }
@@ -161,7 +170,10 @@ include_once('db.php');
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
                                 <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
-                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'>
+                                    <?php echo $slotTime; ?>
+                                    <div class='font-weight-bold mt-2' ><?php echo $assignedTo; ?></div>
+                                </div>
                             </div>  
                         <?php
                                 }
@@ -183,7 +195,10 @@ include_once('db.php');
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
                                 <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
-                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'>
+                                    <?php echo $slotTime; ?>
+                                    <div class='font-weight-bold mt-2' ><?php echo $assignedTo; ?></div>
+                                </div>
                             </div>  
                         <?php
                                 }
@@ -205,7 +220,10 @@ include_once('db.php');
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
                                 <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
-                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'>
+                                    <?php echo $slotTime; ?>
+                                    <div class='font-weight-bold mt-2' ><?php echo $assignedTo; ?></div>
+                                </div>
                             </div>  
                         <?php
                                 }
@@ -227,7 +245,10 @@ include_once('db.php');
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
                                 <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
-                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'>
+                                    <?php echo $slotTime; ?>
+                                    <div class='font-weight-bold mt-2' ><?php echo $assignedTo; ?></div>
+                                </div>
                             </div> 
                         <?php
                                 }
@@ -249,7 +270,10 @@ include_once('db.php');
                             <div style="display: inline; ">
                                 <div class='slot-id' hidden><?php echo $slotId; ?></div>
                                 <div class='assigned-to' hidden><?php echo $assignedTo; ?></div>
-                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'><?php echo $slotTime; ?></div>
+                                <div data-toggle="modal" data-target="#editSlot" class='slot-box mr-2 mb-2 btn py-1 px-3 border border-dark'>
+                                    <?php echo $slotTime; ?>
+                                    <div class='font-weight-bold mt-2' ><?php echo $assignedTo; ?></div>
+                                </div>
                             </div> 
                         <?php
                                 }
@@ -259,6 +283,39 @@ include_once('db.php');
                     </div>
                                         
                 </div>
+                <div class="tab-pane  fade bg-white col-md-12 p-0" id="pills-students" role="tabpanel" aria-labelledby="pills-all-students">
+                    <table class="table table-striped mt-5 pt-5">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Class</th>
+                            <th scope="col">Section</th>
+                            <th scope="col">Branch</th>
+                            <th></th>
+                            <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php 
+                            $students = mysqli_query($conn,"SELECT * FROM students WHERE branch='$branchName'");
+                            while($row = mysqli_fetch_array($students)){
+                            $slno = 1;
+                        ?>
+                            <td><?php echo $slno; ?></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['gender']; ?></td>
+                                <td><?php echo $row['class']; ?></td>
+                                <td><?php echo $row['section']; ?></td>
+                                <td><?php echo $row['branch']; ?></td>
+                                <td><a href="edit_student.php?id=<?php echo $row['id']?>" class='btn btn-primary py-1 mr-2'>Edit</a></td>
+                                <td><a onclick="return confirm('Are you sure?');" href="delete_student.php?id=<?php echo $row['id']?>" class='btn btn-danger py-1'>Delete</a></td>
+                        <?php 
+                            $slno +=1;
+                        } ?>
+                        </tbody>
+                </div>  
             </div>
         </div>
     </div>
@@ -389,6 +446,7 @@ include_once('db.php');
                 </div>
             </div>
             <button class="btn btn-primary" id="editFormSubmit">Submit</button>
+            <a href="#" onclick="return confirm('Are you sure?');" class='btn btn-danger float-right delete-slot'><i class='fa fa-trash'></i> Delete</a>
 		  </form>
       </div>
     </div>
@@ -444,8 +502,11 @@ include_once('db.php');
     $(".slot-box").on("click", function(){
         let day = $(this).parents(".days").text().trim().split(" ")[0]
         $("#editDay").text(day);
-        $('#editSlotTime').val($(this).text());
-        $("#slotId").val($(this).parent().find(".slot-id").text())
+        let time = $(this).text().trim().split(" ")
+        $('#editSlotTime').val(time[0]+" "+time[1]);
+        let id = $(this).parent().find(".slot-id").text()
+        $("#slotId").val(id)
+        $(".delete-slot").attr('href', 'delete_slot.php?id='+id+"&&branch_id="+<?php echo $_GET['id']; ?>)
         $("#editClasses").val($(this).parent().find(".assigned-to").text())
     })
     
