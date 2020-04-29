@@ -7,7 +7,7 @@
     if(!$conn)
         echo "Connection failed";
     
-    $result = mysqli_query($conn,"SELECT * FROM students");
+    $result = mysqli_query($conn,"SELECT * FROM Students");
     $entries = array();
     while($row = mysqli_fetch_array($result)){
         foreach ($clasNames as $value){
