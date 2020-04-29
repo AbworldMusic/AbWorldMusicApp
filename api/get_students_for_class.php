@@ -1,7 +1,7 @@
 <?php 
     include_once('../db.php');
 
-    $classNames="3A";
+    $classNames=$_GET['classes'];
     $clasNames = (explode(",",$classNames));
     
     if(!$conn)
