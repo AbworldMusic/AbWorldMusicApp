@@ -1,13 +1,14 @@
 <?php 
     include_once('../db.php');
 
-    $classNames=$_GET['classes'];
+    $classNames= $_POST['classes'];
     $clasNames = (explode(",",$classNames));
-    
+    $branch = $_POST['branch'];
+
     if(!$conn)
         echo "Connection failed";
     
-    $result = mysqli_query($conn,"SELECT * FROM Students");
+    $result = mysqli_query($conn,"SELECT * FROM Students WHERE branch='$branch' order by name");
     $entries = array();
     while($row = mysqli_fetch_array($result)){
         foreach ($clasNames as $value){
