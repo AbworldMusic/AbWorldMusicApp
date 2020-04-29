@@ -8,7 +8,7 @@
         echo "Connection failed";
     $result = mysqli_query($conn,"SELECT * FROM users");
     $flag = 0;
-    session_start();
+   
     while($row = mysqli_fetch_array($result)){
         if($row['name']==$username || $row['email']==$username){
             if($row['password']==$password){
