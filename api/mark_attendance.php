@@ -1,10 +1,10 @@
 <?php 
     include_once('../db.php');
 
-    $studentId = $_GET['id'];
-    $value = "Present";
-    $date = "01/05/2020";
-    $day = "Firday";
+    $studentId = $_POST['id'];
+    $value =  $_POST['value'];
+    $date =  $_POST['date'];
+    $day =  $_POST['day'];
 
 
     if(!$conn)
