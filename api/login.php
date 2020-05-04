@@ -23,7 +23,7 @@
             }
         }
         else{
-            $record->flag = 1;
+            $record->flag = 0;
         }
         array_push($entries, $record);   
     }
