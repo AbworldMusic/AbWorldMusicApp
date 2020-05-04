@@ -7,14 +7,25 @@
     if(!$conn)
         echo "Connection failed";
     $result = mysqli_query($conn,"SELECT * FROM users");
-    $flag = 0;
-   
+    
+    $entries = array();
     while($row = mysqli_fetch_array($result)){
+        $record =  new \stdClass();
+                
         if($row['name']==$username || $row['email']==$username){
             if($row['password']==$password){
-                $flag = 1;
+                $record->id = $row['id'];
+                $record->flag = 1;
+                $record->role = $row['role'];
+            }
+            else{
+                $record->flag = 0;
             }
         }
+        else{
+            $record->flag = 1;
+        }
+        array_push($entries, $record);   
     }
-    echo $flag;
+    echo json_encode($entries);
 ?>
