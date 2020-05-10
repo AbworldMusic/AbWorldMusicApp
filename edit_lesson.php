@@ -12,8 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category=$_POST['category'];
     $level=$_POST['level'];
 
-    if(file_exists($_FILES['image']['tmp_name']) || is_uploaded_file($_FILES['image']['tmp_name'])) {
-    
+    if(!file_exists($_FILES['image']['tmp_name']) || !is_uploaded_file($_FILES['image']['tmp_name'])) {
+        echo "No file";
+    } else {
         $image = $_FILES['image']['name'];
         $target = "images/".basename($image);
 
