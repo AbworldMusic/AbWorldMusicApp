@@ -12,10 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category=$_POST['category'];
     $level=$_POST['level'];
 
-    $image = $_FILES['image']['name'];
-    $target = "images/".basename($image);
+    if(file_exists($_FILES['image']['tmp_name']) || is_uploaded_file($_FILES['image']['tmp_name'])) {
+    
+        $image = $_FILES['image']['name'];
+        $target = "images/".basename($image);
 
-    if($image!=""){
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
             $msg = "Image uploaded successfully";
         }else{
