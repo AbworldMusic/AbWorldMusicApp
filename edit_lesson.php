@@ -69,7 +69,7 @@ include_once('db.php');
                     <input id="title" value="<?php echo $row['title']; ?>" name="title" type="text" class="form-control"/>
                     
                     <label for="sel1" class="mt-3">Category</label>
-                    <select class="form-control"  value="<?php echo $row['category']; ?>" id="sel1" name="category">
+                    <select class="form-control"  value="<?php echo $row['categ ry']; ?>" id="sel1" name="category">
                         <option>Guitar</option>
                         <option>Keyboard</option>
                         <option>Drums</option>
@@ -84,7 +84,7 @@ include_once('db.php');
                         $image= "./images/". $row['image'];
                     ?>
                     <img class="lesson-image" src="<?php echo $image; ?>" alt="Lesson">
-                    <input id="image" name="image"  type="file" class="form-control"/>
+                    <input id="image" name="image" value="<?php echo $row['image']; ?>"  type="file" class="form-control"/>
                     
                     <label for="description" class="font-label mt-3">Description</label>
                     <textarea id="description" name="description" type="email" class="form-control" rows="6"> <?php echo $row['description']; ?>"</textarea>
