@@ -28,6 +28,18 @@
                         $record->attendance = $row1['value'];
                     }
                 }
+                $current_lesson_id = $row['current_lesson_id'];
+                $current_lesson = mysqli_query($conn,"SELECT * FROM lessons WHERE id='$current_lesson_id'
+                                                       LIMIT 1");
+                
+                if (mysqli_num_rows($attendance)==0){
+                    $record->current_lesson = "Lesson 1";
+                }
+                else{
+                    while($row2 = mysqli_fetch_array($current_lesson)){
+                        $record->current_lesson = $row2['title'];
+                    }
+                }
                 array_push($entries, $record);   
             }
         }    
