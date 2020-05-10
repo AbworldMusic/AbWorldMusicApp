@@ -32,7 +32,7 @@
                 $current_lesson = mysqli_query($conn,"SELECT * FROM lessons WHERE id='$current_lesson_id'
                                                        LIMIT 1");
                 
-                if (mysqli_num_rows($attendance)==0){
+                if (mysqli_num_rows($current_lesson)==0){
                     $record->current_lesson = "Lesson 1";
                 }
                 else{
