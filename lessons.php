@@ -46,7 +46,7 @@ include_once('admin_check.php');
                             include_once('db.php');
                             if(!$conn)
                                 echo "Connection failed";
-                            $result = mysqli_query($conn,"SELECT * FROM lessons");
+                            $result = mysqli_query($conn,"SELECT * FROM lessons order by id");
                             $slno = 1;
                             while($row = mysqli_fetch_array($result)){
                         ?>
