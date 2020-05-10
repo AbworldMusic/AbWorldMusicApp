@@ -14,6 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if(!file_exists($_FILES['image']['tmp_name']) || !is_uploaded_file($_FILES['image']['tmp_name'])) {
         echo "No file";
+        $sql = "UPDATE lessons set title='$title', description='$description', category='$category',
+            level='$level' WHERE id='$id'";
+    
     } else {
         $image = $_FILES['image']['name'];
         $target = "images/".basename($image);
@@ -23,9 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }else{
             $msg = "Failed to upload image";
         }
-    }
-    $sql = "UPDATE lessons set title='$title', image='$image', description='$description', category='$category',
+        $sql = "UPDATE lessons set title='$title', image='$image', description='$description', category='$category',
             level='$level' WHERE id='$id'";
+    
+    }
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
