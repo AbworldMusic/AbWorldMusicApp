@@ -22,15 +22,18 @@
             while($row1 = mysqli_fetch_array($lesson)){
                 $updated_lesson_id = $row1["id"];
                 $updated_lesson_name = $row1["title"];
-                $sql = "UPDATE Students set current_lesson_id='$updated_lesson_id' WHERE student_id='$studentId' AND date='$date'";
+                $sql = "UPDATE Students set current_lesson_id='$updated_lesson_id' WHERE id='$studentId' AND date='$date'";
             }
         }
         else{
             $lesson = mysqli_query($conn,"SELECT * FROM lessons WHERE id < '$current_lesson_id' LIMIT 1");
+            if (mysqli_num_rows($result)==0){
+                $updated_lesson_name = "Same lesson";
+            }
             while($row1 = mysqli_fetch_array($lesson)){
                 $updated_lesson_id = $row1["id"];
                 $updated_lesson_name = $row1["title"];
-                $sql = "UPDATE Students set current_lesson_id='$updated_lesson_id' WHERE student_id='$studentId' AND date='$date'";
+                $sql = "UPDATE Students set current_lesson_id='$updated_lesson_id' WHERE id='$studentId' AND date='$date'";
             }
         }
         
