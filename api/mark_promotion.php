@@ -31,7 +31,7 @@
         }
         else{
             $lesson = mysqli_query($conn,"SELECT * FROM lessons WHERE id < '$current_lesson_id' LIMIT 1");
-            if (mysqli_num_rows($result)==0){
+            if (mysqli_num_rows($lesson)==0){
                 $updated_lesson_name = "Same lesson";
             }
             while($row1 = mysqli_fetch_array($lesson)){
