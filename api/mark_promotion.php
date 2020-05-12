@@ -23,6 +23,10 @@
                 $updated_lesson_id = $row1["id"];
                 $updated_lesson_name = $row1["title"];
                 $sql = "UPDATE Students set current_lesson_id='$updated_lesson_id' WHERE id='$studentId' AND date='$date'";
+                if (mysqli_query($conn, $sql)) {
+                    echo "Marked ";
+        
+                }
             }
         }
         else{
@@ -34,13 +38,17 @@
                 $updated_lesson_id = $row1["id"];
                 $updated_lesson_name = $row1["title"];
                 $sql = "UPDATE Students set current_lesson_id='$updated_lesson_id' WHERE id='$studentId' AND date='$date'";
+                if (mysqli_query($conn, $sql)) {
+                    echo "Marked ";
+        
+                }
             }
         }
         
-        if (mysqli_query($conn, $sql)) {
-            echo "Marked ".$updated_lesson_name;
+        
+        echo $updated_lesson_name;
 
-        }
+        
     }
         
     
