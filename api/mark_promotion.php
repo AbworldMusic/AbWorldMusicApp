@@ -12,7 +12,7 @@
     
     
 
-    $result = mysqli_query($conn,"SELECT * FROM Students WHERE student_id='$studentId'");
+    $result = mysqli_query($conn,"SELECT * FROM Students WHERE id='$studentId'");
 
     
     while($row = mysqli_fetch_array($result)){
