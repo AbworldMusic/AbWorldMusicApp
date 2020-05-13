@@ -24,5 +24,18 @@
         $record->flag = $flag;
         array_push($entries, $record);   
     }
+    if($flag==0){
+        $result1 = mysqli_query($conn,"SELECT * FROM Students WHERE name='$username'");
+        while($row1 = mysqli_fetch_array($result1)){
+            if($row['password']==$password){
+                $record->id = $row1['id'];
+        
+                $flag = 1;
+                $record->role = "Student";
+            }
+        }
+        $record->flag = $flag;
+        array_push($entries, $record);   
+    }
     echo json_encode($entries);
 ?>
