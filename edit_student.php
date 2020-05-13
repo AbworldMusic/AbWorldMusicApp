@@ -17,15 +17,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $section=$_POST['studentSection'];
     $branch=$_POST['studentBranch'];
     $gender = $_POST['gender'];
+    $password = $_POST['password'];
     if(isset($_POST['brainMatrix'])) {
         $brain_matrix = 1;
     }
     else{
         $brain_matrix = 0;
     }
-    
-    $sql = "UPDATE Students set name='$name',brain_matrix='$brain_matrix',gender='$gender', age='$age', level='$level',parentName='$parentName',branch='$branch',
-            class='$class', section='$section', parentPhone='$parentPhone', parentPhone2='$parentPhone2', parentEmail='$parentEmail' WHERE id='$id'";
+    if($password!=""){
+        $sql = "UPDATE Students set name='$name',password='$password',brain_matrix='$brain_matrix',gender='$gender', age='$age', level='$level',parentName='$parentName',branch='$branch',
+        class='$class', section='$section', parentPhone='$parentPhone', parentPhone2='$parentPhone2', parentEmail='$parentEmail' WHERE id='$id'";
+
+    }   
+    else{
+        $sql = "UPDATE Students set name='$name',brain_matrix='$brain_matrix',gender='$gender', age='$age', level='$level',parentName='$parentName',branch='$branch',
+        class='$class', section='$section', parentPhone='$parentPhone', parentPhone2='$parentPhone2', parentEmail='$parentEmail' WHERE id='$id'";
+
+    } 
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
@@ -171,6 +179,9 @@ include_once('db.php');
                         
                         <label for="parentName" class="font-label mt-3">Parent Name</label>
                         <input id="parentName" name="parentName" type="text" class="form-control" value="<?php echo $row['parentName']; ?>"/>
+                        
+                        <label for="password" class="font-label mt-3">Password</label>
+                        <input id="password" name="password" type="password" class="form-control"/>
                         
                         <label for="parentPhone" class="font-label mt-3">Parent phone 1</label>
                         <input id="parentPhone" name="parentPhone" type="number" min=1000000000 max=9999999999 class="form-control" value="<?php echo $row['parentPhone']; ?>"/>
