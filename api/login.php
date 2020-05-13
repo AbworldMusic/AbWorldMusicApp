@@ -10,8 +10,9 @@
     
     $entries = array();
     $flag = 0;
+    $record =  new \stdClass();
     while($row = mysqli_fetch_array($result)){
-        $record =  new \stdClass();
+        
                 
         if($row['name']==$username || $row['email']==$username){
             if($row['password']==$password){
@@ -19,10 +20,10 @@
         
                 $flag = 1;
                 $record->role = $row['role'];
+                $record->flag = $flag;
             }
         }
-        $record->flag = $flag;
-        array_push($entries, $record);   
+        
     }
     if($flag==0){
         $result1 = mysqli_query($conn,"SELECT * FROM Students WHERE name='$username'");
@@ -32,10 +33,12 @@
         
                 $flag = 1;
                 $record->role = "Student";
+                $record->flag = $flag;
             }
         }
-        $record->flag = $flag;
-        array_push($entries, $record);   
+        
+        
     }
+    array_push($entries, $record);   
     echo json_encode($entries);
 ?>
