@@ -12,13 +12,14 @@
     $flag = 0;
     $record =  new \stdClass();
 
-    $username_elements = $username.explode("ABSTU");
-    $name_abbreviation = $username_elements[0]; 
-    $id = $username_elements[1];
-
+    
 
     if( stripos($username,"ABSTU") != false){
-        $result = mysqli_query($conn,"SELECT * FROM Students WHERE id='$id'");
+        $username_elements = $username.explode("ABSTU");
+        $name_abbreviation = $username_elements[0]; 
+        $id = $username_elements[1];
+        
+        $result = mysqli_query($conn,"SELECT * FROM Students WHERE id=$id");
         $record->role = 'Student';
         while($row = mysqli_fetch_array($result)){
             $record->name = $row['name'];
@@ -30,7 +31,10 @@
     }
     else{
         $result = mysqli_query($conn,"SELECT * FROM users WHERE id='$id'");
-    
+        $username_elements = $username.explode("ABUSR");
+        $name_abbreviation = $username_elements[0]; 
+        $id = $username_elements[1];
+
         while($row = mysqli_fetch_array($result)){
             $record->role = $row['role'];
             $record->phone = $row['phone'];
