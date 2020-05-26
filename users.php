@@ -77,6 +77,7 @@ include_once('admin_check.php');
                         <select class="form-control" id="sel1" name="role">
                             <option>Admin</option>
                             <option>Faculty</option>
+                            <option>School Staff</option>
                         </select>
                         
                         <label for="password" class="font-label mt-3">Password</label>
