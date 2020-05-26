@@ -30,11 +30,11 @@
     
     }
     else{
-        $result = mysqli_query($conn,"SELECT * FROM users WHERE id='$id'");
         $username_elements = $username.explode("ABUSR");
         $name_abbreviation = $username_elements[0]; 
-        $id = $username_elements[1];
+        $id = (int)$username_elements[1];
 
+        $result = mysqli_query($conn,"SELECT * FROM users WHERE id='$id'");
         while($row = mysqli_fetch_array($result)){
             $record->role = $row['role'];
             $record->phone = $row['phone'];
