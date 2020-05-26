@@ -17,7 +17,7 @@
     if( stripos($username,"ABSTU") != false){
         $username_elements = $username.explode("ABSTU");
         $name_abbreviation = $username_elements[0]; 
-        $id = $username_elements[1];
+        $id = (int)$username_elements[1];
         
         $result = mysqli_query($conn,"SELECT * FROM Students WHERE id=$id");
         $record->role = 'Student';
