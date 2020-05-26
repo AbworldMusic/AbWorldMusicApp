@@ -11,35 +11,34 @@
     $entries = array();
     $flag = 0;
     $record =  new \stdClass();
-    while($row = mysqli_fetch_array($result)){
-        
-                
-        if($row['name']==$username || $row['email']==$username){
-            if($row['password']==$password){
-                $record->id = $row['id'];
-        
-                $flag = 1;
-                $record->role = $row['role'];
-                $record->flag = $flag;
-            }
+
+    $username_elements = $username.explode("ABSTU");
+    $name_abbreviation = $username_elements[0]; 
+    $id = $username_elements[1];
+
+
+    if( stripos($username,"ABSTU") != false){
+        $result = mysqli_query($conn,"SELECT * FROM Students WHERE id='id'");
+        $record->role = 'Student';
+        while($row = mysqli_fetch_array($result)){
+            $record->name = $row['name'];
+            $record->brain_matrix = $row['brain_matrix'];
+            $record->branch = $row['branch'];
+            $flag = 1;
         }
-        
-    }
     
-    if($flag==0){
-        $result1 = mysqli_query($conn,"SELECT * FROM Students WHERE name='$username'");
-        while($row1 = mysqli_fetch_array($result1)){
-            if($row1['password']==$password){
-                $record->id = $row1['id'];
-        
-                $flag = 1;
-                $record->role = "Student";
-                $record->flag = $flag;
-            }
-        }
-        
-        
     }
+    else{
+        $result = mysqli_query($conn,"SELECT * FROM users WHERE id='id'");
+    
+        while($row = mysqli_fetch_array($result)){
+            $record->role = $row['role'];
+            $record->phone = $row['phone'];
+            $record->name = $row['name'];
+            $flag = 1;
+        }
+    }
+    $record->flag = $flag;
     array_push($entries, $record);   
     echo json_encode($entries);
 ?>
