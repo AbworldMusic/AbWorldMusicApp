@@ -34,7 +34,7 @@
         $name_abbreviation = $username_elements[0]; 
         $id = (int)$username_elements[1];
 
-        $result = mysqli_query($conn,"SELECT * FROM users WHERE id='$id'");
+        $result = mysqli_query($conn,"SELECT * FROM users WHERE id=$id");
         while($row = mysqli_fetch_array($result)){
             $record->role = $row['role'];
             $record->phone = $row['phone'];
