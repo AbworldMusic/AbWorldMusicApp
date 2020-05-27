@@ -14,7 +14,7 @@
     
 
     if( stripos($username,"ABSTU") != false){
-        $username_elements = $username.explode("ABSTU");
+        $username_elements = explode("ABSTU",$username);
         $name_abbreviation = $username_elements[0]; 
         $id = (int)$username_elements[1];
         
@@ -29,7 +29,7 @@
     
     }
     else{
-        $username_elements = $username.explode("ABUSR");
+        $username_elements = explode("ABUSR",$username);
         $name_abbreviation = $username_elements[0]; 
         $id = (int)$username_elements[1];
 
