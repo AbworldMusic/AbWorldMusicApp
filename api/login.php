@@ -21,6 +21,7 @@
         $result = mysqli_query($conn,"SELECT * FROM Students WHERE id=$id");
         $record->role = 'Student';
         while($row = mysqli_fetch_array($result)){
+            $record->id = $row['id'];
             $record->name = $row['name'];
             $record->brain_matrix = $row['brain_matrix'];
             $record->branch = $row['branch'];
@@ -35,6 +36,7 @@
 
         $result = mysqli_query($conn,"SELECT * FROM users WHERE id=$id");
         while($row = mysqli_fetch_array($result)){
+            $record->id = $row['id'];
             $record->role = $row['role'];
             $record->phone = $row['phone'];
             $record->name = $row['name'];
