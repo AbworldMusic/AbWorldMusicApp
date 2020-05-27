@@ -2,7 +2,6 @@
     include_once('../db.php');
 
     $username=$_POST['username'];
-    $password=$_POST['password'];
     
     if(!$conn)
         echo "Connection failed";
