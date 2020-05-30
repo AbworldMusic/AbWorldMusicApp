@@ -51,6 +51,9 @@ include_once('db.php');
                 <li class="">
                     <a class="sub-nav  p-2 mr-2" id="pills-students-tab" data-toggle="pill" href="#pills-students" role="tab" aria-controls="pills-students" aria-selected="true">Students</a>
                 </li>
+                <li class="">
+                    <a class="sub-nav  p-2 mr-2" id="pills-inventory-tab" data-toggle="pill" href="#pills-inventory" role="tab" aria-controls="pills-inventory" aria-selected="true">Inventory</a>
+                </li>
             </ul>
             
             <div class="tab-content bg-white" id="pills-tabContent">
@@ -324,6 +327,46 @@ include_once('db.php');
                     </table>
                     
                 </div>  
+                <div class="tab-pane  fade bg-white col-md-12 p-0" id="pills-inventory" role="tabpanel" aria-labelledby="pills-all-inventory">
+                <table class="table table-striped mt-5 pt-5">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Total quantity</th>
+                        <th scope="col">Good</th>
+                        <th scope="col">Average</th>
+                        <th scope="col">Bad</th>
+                        <th></th>
+                        <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $id = $_GET['id'];
+                        $result = mysqli_query($conn,"SELECT * FROM inventory WHERE branch_id='$id'");
+                        $slno = 1;
+                        while($row = mysqli_fetch_array($result)){
+                        ?>
+                            <tr>
+                                <td><?php echo $slno; ?></td>
+                                <td><?php echo $row['product_name']; ?></td>
+                                <td><?php echo $row['total']; ?></td>
+                                <td><?php echo $row['good']; ?></td>
+                                <td><?php echo $row['average']; ?></td>
+                                <td><?php echo $row['bad']; ?></td>
+                                <td><a href="edit_product.php?id=<?php echo $row['id']?>"" class='btn btn-info'>Edit</a></td>
+                                <td><a onclick="return confirm('Are you sure?');" href="delete_product.php?id=<?php echo $row['id']?>" class='btn btn-danger'>Delete</a></td>
+                            </tr>
+                            
+                        <?php 
+                            $slno = $slno+1;
+                        } ?>
+                    
+                    </tbody>
+                </table>
+                
+                <div>
             </div>
         </div>
     </div>
