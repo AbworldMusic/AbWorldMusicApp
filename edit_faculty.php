@@ -37,6 +37,7 @@ include_once('db.php');
             <a href="faculty.php" class='nav-item active pb-1 mb-3'>Faculty</a>
             <a href="branches.php" class='nav-item  pb-1 mb-3'>Branches</a>
             <a href="lessons.php" class='nav-item pb-1 mb-3'>Lessons</a>
+            <a href="inventory.php" class='nav-item pb-1 mb-3'>Inventory</a>
         </div>
     </div>
     <div class="h-100 w-100">
