@@ -272,7 +272,7 @@ include_once('base.php');
                                     <input type="radio" name="awareness"  value="Others">
                                     <span class="checkmark"></span>
                                 </label>   
-                                <input type="text" class='form-control  w-50' name='awarenessOther' id='awarenessOther'>                                
+                                <input type="text" placeholder='Please Specify if Others' class='form-control  w-50' name='awarenessOther' id='awarenessOther'>                                
                                 
                             </div>
                             
