@@ -240,15 +240,43 @@ include_once('base.php');
                                     <label class="check-box form-group  "> No
                                         <input type="radio" name="advancePaid"  value="No">
                                         <span class="checkmark"></span>
-                                    </label>
-                                    
+                                    </label>                                    
                                 </div>
                             </div>
                             
-                            <div class="row d-flex justify-content-start my-2 mx-2">
-                                <label for="joiningDate" class=' mt-2'>How did they get to know about World of Music</label>     
-                                <textarea class='form-control' name='awareness' id='awareness' rows="4"></textarea>                                
+                            <div class="my-2 mx-2">
+                            <label for="joiningDate" class=' mt-2'>How did they get to know about World of Music</label>     
+                                
+                            <div class='w-100'>
+                                <label class="check-box form-group  "> Google
+                                    <input type="radio" name="awareness"  value="Google">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="check-box form-group  "> Instagram
+                                    <input type="radio" name="awareness"  value="Instagram">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="check-box form-group  "> Facebook
+                                    <input type="radio" name="awareness"  value="Facebook">
+                                    <span class="checkmark"></span>
+                                </label>                                  
+                                <label class="check-box form-group  "> JustDial
+                                    <input type="radio" name="awareness"  value="JustDial">
+                                    <span class="checkmark"></span>
+                                </label>                                       
+                                <label class="check-box form-group  "> Word of Mouth
+                                    <input type="radio" name="awareness"  value="Word of Mouth">
+                                    <span class="checkmark"></span>
+                                </label>   
+                                <label class="check-box form-group  "> Others
+                                    <input type="radio" name="awareness"  value="Others">
+                                    <span class="checkmark"></span>
+                                </label>   
+                                <input type="text" class='form-control  w-50' name='awarenessOther' id='awarenessOther'>                                
+                                
                             </div>
+                            
+                        </div>
                         </div>
                         <div class="d-flex justify-content-between my-5 mx-2">
                             <a class="btn btn-light   border border-dark" href="#enrollment" data-slide="prev">
