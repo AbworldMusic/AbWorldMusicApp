@@ -1,12 +1,13 @@
-<?php 
-    include_once('db.php');
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    include_once('../db.php');
 
     $username=$_POST['username'];
     $password=$_POST['password'];
     
     if(!$conn)
         echo "Connection failed";
-    $result = mysqli_query($conn,"SELECT * FROM users WHERE organization_id=1");
+    $result = mysqli_query($conn,"SELECT * FROM users WHERE organization_id=2");
     $slno = 1;
     session_start();
     while($row = mysqli_fetch_array($result)){
@@ -15,16 +16,17 @@
                 $_SESSION["email"] = $username;
                 $_SESSION["flash"]= "Logged in sucessfully";
                 $_SESSION["role"] = $row["role"];
-                header("Location: admin_home.php");
+                header("Location: enrollment.php");
             }
-            else{
+            else{ 
                 $_SESSION["flash"]= "incorrect password";
-                header("Location: index.php");
+                header("Location: login.php");
             }
         }
         else{
             $_SESSION["flash"]= "user is not registered";
-            header("Location: index.php");
+            header("Location: login.php");
         }
+
     }
-?>
+}
